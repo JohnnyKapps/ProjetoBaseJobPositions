@@ -1,27 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Topo from './Topo';
+import Filtro from './Filtro';
+import Listagem from './Listagem';
 
 class App extends Component {
+  constructor(){
+    super();
+
+    this.state = {
+      jobs: []
+    }
+
+    this.filter = this.filter.bind(this);
+  }
+
+  filter(jobsFiltrados){
+    this.setState({
+      jobs: jobsFiltrados
+    });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container">
+        <Topo />
+        <Filtro filter={ this.filter } />
+        <Listagem />
       </div>
     );
+  }
+
+  busca(){
+    alert('faz a busca!')
   }
 }
 
