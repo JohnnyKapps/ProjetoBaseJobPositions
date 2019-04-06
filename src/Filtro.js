@@ -29,15 +29,11 @@ class Filtro extends Component {
     _busca() {
         let jobsFiltrados = [];
         
-        // if(this.state.searchText != ""){
-        //     this.props.jobs.forEach(item => {
-        //         if(item.title.toLowerCase().indexOf(this.state.searchText) > -1 ){
-        //             jobs
-        //         }
-        //     });
-        // }
+        var result = this.state.jobs.filter(function(v, i) {
+            return (v["title"].indexOf(this.state.searchText) > -1 || v["location"] == this.state.location);
+          })
 
-        this.props.filter(jobsFiltrados);
+        this.props.filter(result);
     }
 
     render(){
