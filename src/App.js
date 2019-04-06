@@ -59,7 +59,7 @@ class App extends Component {
     return (
       <div className="container">
         <Topo />
-        <Filtro filter={ this.filter } />
+        <Filtro filter={ this._filter } jobs={this.state.jobs} />
         <Listagem jobs={this.state.jobs} />
       </div>
     );
