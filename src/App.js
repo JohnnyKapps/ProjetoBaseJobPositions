@@ -12,10 +12,44 @@ class App extends Component {
       jobs: []
     }
 
-    this.filter = this.filter.bind(this);
+    this._filter = this._filter.bind(this);
+    this._loadJobs = this._loadJobs.bind(this);
   }
 
-  filter(jobsFiltrados){
+  componentDidMount(){
+    this._loadJobs();
+  }
+
+  _loadJobs(){
+    var jobs = [
+      {
+        title: "Analista Senior",
+        description: "Vaga de analista senior para a empresa XPTO",
+        location: "SP"
+      },
+      {
+        title: "Analista Senior",
+        description: "Vaga de analista senior para a empresa XPTO",
+        location: "SP"
+      },
+      {
+        title: "Analista Senior",
+        description: "Vaga de analista senior para a empresa XPTO",
+        location: "SP"
+      },
+      {
+        title: "Analista Senior",
+        description: "Vaga de analista senior para a empresa XPTO",
+        location: "SP"
+      }
+    ]
+
+    this.setState({
+      jobs: jobs
+    })
+  }
+
+  _filter(jobsFiltrados){
     this.setState({
       jobs: jobsFiltrados
     });
@@ -26,7 +60,7 @@ class App extends Component {
       <div className="container">
         <Topo />
         <Filtro filter={ this.filter } />
-        <Listagem />
+        <Listagem jobs={this.state.jobs} />
       </div>
     );
   }

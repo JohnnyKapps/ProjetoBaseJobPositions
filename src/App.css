@@ -73,3 +73,36 @@ h2.titulo:after {
 .topo h1{
   padding-top: 50px;
 }
+
+.card {
+  width: calc(30%);
+  background: white;
+  margin-bottom: 20px;
+  min-height: 175px;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+}
+
+.listagem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.card h3:after {
+  content: '';
+  height: 100%;
+  width: 3px;
+  background: #25a8e4;
+  position: absolute;
+  left: -6px;
+}
+
+.card h3 {
+  position: relative;
+  margin-left: 7px;
+  margin-bottom: 15px;
+}
